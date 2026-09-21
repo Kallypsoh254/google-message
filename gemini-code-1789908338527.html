@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Messages Web Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            darkbg: '#121212',
+            sidebar: '#1e1e1e',
+            chatbg: '#181818',
+            bubblein: '#2d2d2d',
+            bubbleout: '#0b57d0',
+            bordercol: '#333333'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-darkbg text-gray-200 h-screen flex flex-col overflow-hidden font-sans">
+
+  <!-- Top App Bar -->
+  <header class="flex items-center justify-between px-4 h-16 border-b border-bordercol bg-darkbg select-none">
+    <div class="flex items-center space-x-4">
+      <button class="text-gray-400 hover:text-white p-2 rounded-full"><i class="fa-solid fa-bars text-lg"></i></button>
+      <div class="flex items-center space-x-2">
+        <i class="fa-solid fa-comments text-blue-500 text-xl"></i>
+        <span class="text-lg font-medium text-gray-100 tracking-wide">Google Messages</span>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <button class="text-gray-400 hover:text-white p-2 rounded-full"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" class="w-8 h-8 rounded-full object-cover border border-gray-600" alt="Profile"></button>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <div class="flex flex-1 overflow-hidden">
+    
+    <!-- Left Sidebar: Conversations List -->
+    <aside class="w-80 bg-sidebar border-r border-bordercol flex flex-col">
+      <!-- Start Chat Button -->
+      <div class="p-3">
+        <button class="bg-[#c2e7ff] text-[#001d35] font-medium px-5 py-3 rounded-full flex items-center space-x-3 shadow hover:bg-blue-200 transition">
+          <i class="fa-solid fa-comment text-sm"></i>
+          <span>Start chat</span>
+        </button>
+      </div>
+
+      <!-- Conversations Scroll List -->
+      <div class="flex-1 overflow-y-auto divide-y divide-bordercol/40">
+        
+        <!-- Active Chat Item -->
+        <div class="flex items-center px-4 py-3 bg-[#2b2b2b] cursor-pointer">
+          <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white shrink-0 mr-3">M</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-sm font-semibold text-white truncate">MPESA</h4>
+              <span class="text-xs text-gray-400">2:14 PM</span>
+            </div>
+            <p class="text-xs text-gray-300 truncate">UIK3I7THLI Confirmed. Ksh30.00 ...</p>
+          </div>
+        </div>
+
+        <!-- Other Chats -->
+        <div class="flex items-center px-4 py-3 hover:bg-[#252525] cursor-pointer transition">
+          <div class="w-10 h-10 rounded-full bg-teal-700 flex items-center justify-center font-bold text-white shrink-0 mr-3">O</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-sm font-semibold text-gray-200 truncate">Okoa Jahazi</h4>
+              <span class="text-xs text-gray-500">8:27 AM</span>
+            </div>
+            <p class="text-xs text-gray-400 truncate">You have an overdue Okoa debt of...</p>
+          </div>
+        </div>
+
+        <div class="flex items-center px-4 py-3 hover:bg-[#252525] cursor-pointer transition">
+          <div class="w-10 h-10 rounded-full bg-emerald-700 flex items-center justify-center font-bold text-white shrink-0 mr-3">S</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-sm font-semibold text-gray-200 truncate">SAFARICOM</h4>
+              <span class="text-xs text-gray-500">Sat</span>
+            </div>
+            <p class="text-xs text-gray-400 truncate">Send money with confidence! When y...</p>
+          </div>
+        </div>
+
+        <div class="flex items-center px-4 py-3 hover:bg-[#252525] cursor-pointer transition">
+          <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white shrink-0 mr-3">0</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-sm font-semibold text-gray-200 truncate">0750 587884</h4>
+              <span class="text-xs text-gray-500">Fri</span>
+            </div>
+            <p class="text-xs text-gray-400 truncate">You: Nilikua huko leo</p>
+          </div>
+        </div>
+
+        <div class="flex items-center px-4 py-3 hover:bg-[#252525] cursor-pointer transition">
+          <div class="w-10 h-10 rounded-full bg-orange-700 flex items-center justify-center font-bold text-white shrink-0 mr-3">g</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-baseline">
+              <h4 class="text-sm font-semibold text-gray-200 truncate">geewende1</h4>
+              <span class="text-xs text-gray-500">Fri</span>
+            </div>
+            <p class="text-xs text-gray-400 truncate">You: Uko aje lakini</p>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Right Chat Window Area -->
+    <main class="flex-1 bg-chatbg flex flex-col">
+      
+      <!-- Thread Header -->
+      <div class="h-16 px-6 flex items-center justify-between border-b border-bordercol bg-chatbg">
+        <h2 class="font-semibold text-white tracking-wider text-sm">MPESA</h2>
+        <div class="flex items-center space-x-5 text-gray-400">
+          <button class="hover:text-white"><i class="fa-regular fa-bell"></i></button>
+          <button class="hover:text-white"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        </div>
+      </div>
+
+      <!-- Messages History Scroll Container -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-4 flex flex-col">
+        
+        <!-- Incoming Message Card 1 -->
+        <div class="self-start max-w-lg bg-bubblein rounded-2xl overflow-hidden border border-bordercol shadow">
+          <div class="bg-[#1b5e20] p-4 flex items-center justify-center">
+            <div class="text-white font-black text-3xl tracking-widest italic bg-emerald-700 px-6 py-2 rounded shadow-inner">S</div>
+          </div>
+          <div class="p-3 text-xs bg-[#222222]">
+            <p class="font-semibold text-gray-200">Fintech App</p>
+            <p class="text-gray-400 text-[10px]">saf.cx</p>
+          </div>
+        </div>
+
+        <!-- Incoming Text Message 1 -->
+        <div class="self-start max-w-lg bg-bubblein rounded-2xl p-4 text-sm text-gray-200 leading-relaxed shadow">
+          UIJQX7E62C Confirmed. Fuliza M-PESA amount is Ksh 100.00. Access Fee charged Ksh 1.00. Total Fuliza M-PESA outstanding amount is Ksh201.57 due on 19/10/26. To check daily charges, Dial *334#OK Select Query Charges
+        </div>
+
+        <!-- Incoming Text Message 2 -->
+        <div class="self-start max-w-lg bg-bubblein rounded-2xl p-4 text-sm text-gray-200 leading-relaxed shadow">
+          UIJ3I7R4AB Confirmed. Ksh50.00 sent to VICTORIA NDUNDA on 19/9/26 at 8:06 PM. New M-PESA balance is Ksh88.02. Transaction cost, Ksh0.00. Amount you can transact within the day is 499,882.00. See all your balances now <a href="#" class="text-blue-400 underline">https://saf.cx/kWQpy</a>
+        </div>
+
+        <!-- Incoming Message Card 2 -->
+        <div class="self-start max-w-lg bg-bubblein rounded-2xl overflow-hidden border border-bordercol shadow">
+          <div class="bg-[#1b5e20] p-4 flex items-center justify-center">
+            <div class="text-white font-black text-3xl tracking-widest italic bg-emerald-700 px-6 py-2 rounded shadow-inner">S</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Disabled Status -->
+      <div class="py-4 text-center border-t border-bordercol text-xs text-gray-400 bg-chatbg">
+        Messaging with MPESA is not available right now
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
